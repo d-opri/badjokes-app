@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 export default function Home() {
-  const { data: jokes, isLoading, error } = useSWR("/api/articles");
+  const { data: jokes, isLoading, error } = useSWR("/api/jokes");
 
   // if (isLoading) return null;
   if (error) {
@@ -20,7 +20,7 @@ export default function Home() {
           jokes.map((joke) => (
             <li key={joke.id}>
               <article>
-                <Link href={`/articles/${joke.id}`}>
+                <Link href={`/jokes/${joke.id}`}>
                   <h2>{jokes.text}</h2>
                 </Link>
                 <div>

@@ -1,16 +1,16 @@
-
-import { getAllJokes } from "../../../helpers/db";
+import { getJoke } from "../../../helpers/db";
 
 export default async function handler(request, response) {
- 
-    
-  console.log(request.method);
- 
-
   switch (request.method) {
     case "GET": {
-      const jokes = await getAllJokes();
-      response.status(200).json(jokes);
+      const joke = await getJoke(request.query.id);
+      if (!joke) {
+        response.status(404).json({
+          message: `Joke ${request.query.id} was not found.`,
+        });
+      } else {
+        response.status(200).json(joke);
+      }
       break;
     }
     default: {
