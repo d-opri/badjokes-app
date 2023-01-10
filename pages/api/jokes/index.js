@@ -1,4 +1,3 @@
-
 import { getAllJokes } from "../../../helpers/db";
 
 export default async function handler(request, response) {

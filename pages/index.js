@@ -3,9 +3,8 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 export default function Home() {
-  const { data: jokes, isLoading, error } = useSWR("/api/jokes");
+  const { data: jokes, isLoading, error } = useSWR("/api/jokes/index");
 
-  // if (isLoading) return null;
   if (error) {
     return <h1>{error.message}</h1>;
   }
