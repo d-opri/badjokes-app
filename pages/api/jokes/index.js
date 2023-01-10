@@ -1,8 +1,4 @@
 
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-// import articles from "../../db.json";
-import { getAllArticles } from "../../../helpers/db";
 
 export default async function handler(request, response) {
   //serverless functions
