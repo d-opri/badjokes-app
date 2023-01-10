@@ -3,7 +3,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 export default function Home() {
-  const { data: articles, isLoading, error } = useSWR("/api/articles");
+  const { data: jokes, isLoading, error } = useSWR("/api/articles");
 
   // if (isLoading) return null;
   if (error) {
@@ -12,24 +12,25 @@ export default function Home() {
 
   return (
     <>
-      <h1>Articles</h1>
+      <h1>Bad Jokes</h1>
       <ul>
         {isLoading ? (
           <h2>Loading...</h2>
         ) : (
-          articles.map((article) => (
-            <li key={article.id}>
+          jokes.map((joke) => (
+            <li key={joke.id}>
               <article>
-                <Link href={`/articles/${article.id}`}>
-                  <h2>{article.name}</h2>
+                <Link href={`/articles/${joke.id}`}>
+                  <h2>{jokes.text}</h2>
                 </Link>
                 <div>
                   <h3>Categories</h3>
                   <UnbulletedList>
-                    {article.categories.map((category) => (
+                    {joke.categories.map((category) => (
                       <li key={category}>{category}</li>
                     ))}
                   </UnbulletedList>
+                  <h2>{jokes.author}</h2>
                 </div>
               </article>
             </li>

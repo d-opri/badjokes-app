@@ -8,8 +8,8 @@ export default async function handler(request, response) {
 
   switch (request.method) {
     case "GET": {
-      const articles = await getAllArticles();
-      response.status(200).json(articles);
+      const jokes = await getAllJokes();
+      response.status(200).json(jokes);
       break;
     }
     default: {
